@@ -7,12 +7,12 @@ const ToggleSwitch = ({ isChecked, setIsChecked }) => {
 
   return (
     <div className="flex">
-    <label class="switch-button" for="switch">
-      <div class="switch-outer ">
+    <label className="switch-button" htmlFor="switch">
+      <div className="switch-outer ">
         <input id="switch" type="checkbox" onChange={handleToggle} />
-        <div class="button">
-          <span class="button-toggle"></span>
-          <span class="button-indicator"></span>
+        <div className="button">
+          <span className="button-toggle"></span>
+          <span className="button-indicator"></span>
         </div>
       </div>
     </label>

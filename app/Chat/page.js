@@ -1,18 +1,17 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { GeminiHistory } from "@utils/GeminiHistory.js";
-
 import { useDataContext } from "@utils/Datacontext";
 import { useSession } from "next-auth/react";
 import axios from "axios";
-
+ 
 const Chat = () => {
   const { data: session } = useSession();
   const { firstquestion } = useDataContext(null);
   let firstprompt = "";
   const [data, setData] = useState("");
   const [history, setHistory] = useState([]);
-
+  
   const chatContainerRef = useRef(null);
   const textareaRef = useRef(null);
 

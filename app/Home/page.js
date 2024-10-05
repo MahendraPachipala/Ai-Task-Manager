@@ -19,7 +19,7 @@ const Home = () => {
       <div className="relative h-48 w-[750px] bg-transparent text-white">
         <textarea
           className="glassmorphism absolute rounded-xl p-6 h-full w-full placeholder-gray-400 border-none outline-none resize-none"
-          placeholder="Search..."
+          placeholder="Ask Your Memories..."
           wrap="soft"
           onChange={(e) => setQuestion(e.target.value)}
         />
