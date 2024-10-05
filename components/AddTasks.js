@@ -28,7 +28,7 @@ const AddTasks = ({ setIsOpen, setAlert }) => {
 
   const handleAddTask = async () => {
     try {
-      const res = await axios.post("http://localhost:3000/api/add/task", {
+      const res = await axios.post("/api/add/task", {
         userId: session.user.id,
         description: task.description,
         start_time: task.start_time,
@@ -55,7 +55,7 @@ const AddTasks = ({ setIsOpen, setAlert }) => {
 
   const handleAddMemory = async () => {
     try {
-      const res = await axios.post("http://localhost:3000/api/add/memory", {
+      const res = await axios.post("/api/add/memory", {
         userId: session.user.id,
         memory: memory,
       });

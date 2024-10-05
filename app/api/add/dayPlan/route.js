@@ -7,8 +7,6 @@ export const POST = async (req) => {
   const currdate = new Date();
   const formattedDate = currdate.toISOString().split("T")[0];
 
-  
-
   try {
     await connectToDB();
 
