@@ -46,7 +46,6 @@ const TaskSchema = new Schema({
   },
 });
 
-// Check if the model is already defined to avoid overwriting during hot reloads
 const Tasks = models.Tasks || model('Tasks', TaskSchema);
 
 export default Tasks;

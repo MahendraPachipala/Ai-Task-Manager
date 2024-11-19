@@ -43,7 +43,7 @@ export const POST = async (req) => {
 
     Response Format:
     Task, Start Time (hh:mm), End Time (hh:mm), Date (yyyy-mm-dd)
-
+    dont give anything else just give response like eg:Exam,09:00,12:00,2024-11-19.
     dont give anything else.
     `;
 
@@ -52,10 +52,9 @@ export const POST = async (req) => {
     prompt += "<desc>" + data + "<desc>";
 
     const res = await gemini(prompt);
-
-    //extract task,start time,end time,date
-    const [res_task, res_start_time, res_end_time, res_date] = res
-      .split(", ")
+     
+      const [res_task, res_start_time, res_end_time, res_date] = res
+      .split(",")
       .map((item) => item.trim());
 
 
@@ -110,6 +109,7 @@ export const POST = async (req) => {
         );
       });
   } catch (err) {
+    console.log(err);
     return new Response(
       JSON.stringify({
         message: "Failed to connect to database",

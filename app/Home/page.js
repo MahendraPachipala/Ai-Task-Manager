@@ -1,18 +1,36 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { MdSend } from "react-icons/md";
 import { useRouter } from 'next/navigation';
+import { useSession } from "next-auth/react";
 import { useDataContext } from "@utils/Datacontext";
+import axios from "axios";
 
 const Home = () => {
   const router = useRouter();
   const [question, setQuestion] = useState("");
   const {setfirstQuestion} = useDataContext();
+  const{data:session,status} = useSession();
   
   const handleClick = () => {
     setfirstQuestion(question);
     router.push("/Chat");
   };
+
+  useEffect(() => {
+    const fetchEmails = async () => {
+      if (status === "authenticated" && session) {
+        try {
+          await axios.post("http://localhost:3000/api/add/emails", {
+            session: session,
+          });
+        } catch (error) {
+          console.error("Error fetching emails:", error);
+        }
+      }
+    };
+    fetchEmails();
+  }, [session, status]);
 
   return (
     <div className="flex justify-center min-h-screen items-center">

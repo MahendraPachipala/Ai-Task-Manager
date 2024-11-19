@@ -1,4 +1,4 @@
-// File: D:\Ai-Task-manager\app\Schedule\page.js
+// File: D:\Ai-Task-Manager\app\Schedule\page.js
 import * as entry from '../../../../app/Schedule/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -67,7 +67,6 @@ const Tasks = () => {
 
   return (
     <div>
-      {/* blur div */}
       {isOpen && (
         <div
           onClick={handleOpen}

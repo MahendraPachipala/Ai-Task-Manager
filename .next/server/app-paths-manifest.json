@@ -1,7 +1,9 @@
 {
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/Schedule/page": "app/Schedule/page.js",
-  "/Home/page": "app/Home/page.js",
   "/page": "app/page.js",
-  "/Tasks/page": "app/Tasks/page.js"
+  "/Home/page": "app/Home/page.js",
+  "/Tasks/page": "app/Tasks/page.js",
+  "/Deadlines/page": "app/Deadlines/page.js",
+  "/api/get/emails/route": "app/api/get/emails/route.js",
+  "/api/add/emails/route": "app/api/add/emails/route.js",
+  "/Schedule/page": "app/Schedule/page.js"
 }

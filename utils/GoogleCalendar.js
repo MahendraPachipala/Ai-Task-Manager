@@ -4,7 +4,7 @@ const AddCalenderEvent = async (
   description,
   start_time,
   end_time,
-  date,
+  date, 
   session
 ) => {
   const accessToken = session.user.accessToken;
@@ -14,7 +14,7 @@ const AddCalenderEvent = async (
 
   try {
     const client = new google.auth.OAuth2();
-
+ 
     client.setCredentials({
       access_token: accessToken,
       refresh_token: refreshToken,
