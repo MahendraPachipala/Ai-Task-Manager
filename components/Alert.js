@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 
-const Alert = ({ alert, setAlert }) => {
+const Alert = ({ alert,setAlert,Time}) => {
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setAlert({}); 
-    }, 3000);
+    }, Time);
 
     return () => clearTimeout(timer);
   }, [alert, setAlert]);
@@ -15,8 +16,6 @@ const Alert = ({ alert, setAlert }) => {
     500: "text-red-700",
     201: "text-green-500"
   };
-
-  //console.log(color[alert.status]);
 
   return (
     <div className={`glassmorphism fixed bottom-10 right-10 p-6 ${color[alert.status]}`}>

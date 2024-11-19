@@ -1,3 +1,4 @@
+
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { GeminiHistory } from "@utils/GeminiHistory.js";
@@ -27,6 +28,7 @@ const Chat = () => {
           if (req) {
             const memoriesList = req.data.memories.join(",");
             firstprompt = `Memories (wrapped in <>) and separated by commas: <${memoriesList}>`;
+            console.log(firstprompt);
 
             await GeminiHistory(firstprompt);
 

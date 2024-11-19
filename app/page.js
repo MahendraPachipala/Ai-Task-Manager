@@ -2,9 +2,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { signIn, useSession, getProviders } from "next-auth/react";
-
-import { ChevronRight } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import AnimatedGradientText from "@components/ui/animated-gradient-text";
 

@@ -10,6 +10,7 @@ export const GET = async (req) => {
         await connectToDB();
         
         const data = await Memories.findOne({userId});
+        console.log(data);
         return new Response(JSON.stringify(data), { status: 200 });
     } catch (error) {
         console.error(error);

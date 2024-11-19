@@ -26,6 +26,7 @@ const chat = model.startChat({
 async function GeminiHistory(prompt) {
   try {
     let result = await chat.sendMessage(prompt);
+    console.log(result);
     return result.response.text(); 
   } catch (error) {
     console.error("Error in GeminiHistory:", error);

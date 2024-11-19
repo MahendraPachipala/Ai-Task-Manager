@@ -1,9 +1,10 @@
 {
   "/page": "app/page.js",
+  "/Deadlines/page": "app/Deadlines/page.js",
   "/Home/page": "app/Home/page.js",
   "/Tasks/page": "app/Tasks/page.js",
-  "/Deadlines/page": "app/Deadlines/page.js",
-  "/api/get/emails/route": "app/api/get/emails/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/api/add/emails/route": "app/api/add/emails/route.js",
-  "/Schedule/page": "app/Schedule/page.js"
+  "/api/get/emails/route": "app/api/get/emails/route.js",
+  "/api/delete/deadlines/route": "app/api/delete/deadlines/route.js"
 }

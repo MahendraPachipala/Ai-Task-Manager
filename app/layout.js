@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         
-        <Alert alert={alert} setAlert={setAlert}/>
+        <Alert alert={alert} setAlert={setAlert} Time={3000}/>
         {/* backgroundImage */}
         <div
           className="absolute inset-0 h-full w-full z-[-1]"

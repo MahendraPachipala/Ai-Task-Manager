@@ -17,20 +17,7 @@ const Home = () => {
     router.push("/Chat");
   };
 
-  useEffect(() => {
-    const fetchEmails = async () => {
-      if (status === "authenticated" && session) {
-        try {
-          await axios.post("http://localhost:3000/api/add/emails", {
-            session: session,
-          });
-        } catch (error) {
-          console.error("Error fetching emails:", error);
-        }
-      }
-    };
-    fetchEmails();
-  }, [session, status]);
+  
 
   return (
     <div className="flex justify-center min-h-screen items-center">

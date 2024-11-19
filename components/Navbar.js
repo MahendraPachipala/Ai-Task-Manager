@@ -39,10 +39,10 @@ const Navbar = ({ handleOpen }) => {
             <Image src="/asserts/icons/tasksIcon.svg" width={25} height={20} alt="Tasks Icon" />
           </Link>
 
-          <Link href="/Schedule" className="flex justify-end gap-4">
+          {/* <Link href="/Schedule" className="flex justify-end gap-4">
             <span>Schedule</span>
             <Image src="/asserts/icons/calenderIcon.svg" width={25} height={20} alt="Schedule Icon" />
-          </Link>
+          </Link> */}
 
           <Link href="/Deadlines" className="flex justify-end gap-4">
             <span>Deadlines</span>
