@@ -32,6 +32,7 @@ export const POST = async (req) => {
   - Consider the total hours in a day and avoid over-scheduling.
   - Make sure to include personal time, such as lunch, exercise, or any other necessary activities.
   - Try to keep the schedule flexible, allowing for adjustments as needed.
+  - Don't use brackets in description.
 `;
 
 prompt+=("<desc>"+request+"<desc>");

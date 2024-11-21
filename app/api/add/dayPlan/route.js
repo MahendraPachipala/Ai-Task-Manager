@@ -14,10 +14,12 @@ export const POST = async (req) => {
 
     for (let i = 0; i < tasksArray.length - 1; i++) {
       let element = tasksArray[i];
+      if(element.trim()!=""){
       const [task, start_time, end_time] = element
-        .split(",")
+        .split(", ")
         .map((item) => item.trim());
-
+        console.log(task);
+        
       tasks.push({
         description: task,
         ischecked: false,
@@ -26,6 +28,8 @@ export const POST = async (req) => {
         date: formattedDate,
       });
     }
+  }
+
 
     const res = await Tasks.findOne({ userId }).then((doc) => {
       if (doc) {
@@ -43,10 +47,11 @@ export const POST = async (req) => {
         firstTask.save();
       }
     });
+    console.log("Hello");
 
-    return new Response({ message: "successfully added" }, { status: 201 });
+    return new Response(JSON.stringify({ message: "successfully added" }), { status: 201 });
   } catch (err) {
     console.log(err);
-    return new Response({ message: err.message }, { status: 500 });
+    return new Response(JSON.stringify({ message: err.message }), { status: 500 });
   }
 };

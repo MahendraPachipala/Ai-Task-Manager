@@ -17,6 +17,18 @@ const AddTasks = ({ setIsOpen, setAlert }) => {
     date: "",
   });
 
+  const handleTaskSubmit = (event) =>{
+    if(event.key==='Enter'){
+      handleAddTask();
+    }
+  }
+
+  const handleMemorySubmit = (event)=>{
+    if(event.key==='Enter'){
+      handleAddMemory();
+    }
+  }
+
   const handleonchange = (e) => {
     setTask((prev) => ({
       ...prev,
@@ -119,6 +131,7 @@ const AddTasks = ({ setIsOpen, setAlert }) => {
               value={task.description}
               name="description"
               onChange={handleonchange}
+              onKeyDown={handleTaskSubmit}
             />
 
             <div className="flex justify-end items-center gap-3">
@@ -175,7 +188,7 @@ const AddTasks = ({ setIsOpen, setAlert }) => {
               {isloading ?
                 <svg
                   aria-hidden="true"
-                  class="w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                  className="w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                   viewBox="0 0 100 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -205,6 +218,7 @@ const AddTasks = ({ setIsOpen, setAlert }) => {
               className="w-full px-4 py-2 bg-[#363636] rounded-md h-24 text-white placeholder-gray-400 border-none outline-none mb-2"
               value={memory}
               onChange={(e) => setMemory(e.target.value)}
+              onKeyDown={handleMemorySubmit}
             />
             <button
               onClick={handleAddMemory}
@@ -214,7 +228,7 @@ const AddTasks = ({ setIsOpen, setAlert }) => {
               {isloading ?
                 <svg
                   aria-hidden="true"
-                  class="w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                  className="w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                   viewBox="0 0 100 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"

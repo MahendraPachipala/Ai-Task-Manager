@@ -16,15 +16,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/Home/page.js"
     ],
+    "/Tasks/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/Tasks/page.js"
+    ],
     "/Deadlines/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/Deadlines/page.js"
     ],
-    "/Tasks/page": [
+    "/Chat/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/Tasks/page.js"
+      "static/chunks/app/Chat/page.js"
     ]
   }
 }

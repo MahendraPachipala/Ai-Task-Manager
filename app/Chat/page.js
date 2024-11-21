@@ -1,18 +1,24 @@
-
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { GeminiHistory } from "@utils/GeminiHistory.js";
 import { useDataContext } from "@utils/Datacontext";
 import { useSession } from "next-auth/react";
 import axios from "axios";
- 
+import { MdSend } from "react-icons/md";
+import Memories from "@components/Memories";
+
 const Chat = () => {
   const { data: session } = useSession();
   const { firstquestion } = useDataContext(null);
+  const [isChat,setischat] = useState(true);
   let firstprompt = "";
   const [data, setData] = useState("");
   const [history, setHistory] = useState([]);
-  
+  const handleKeydown = (event) =>{
+    if(event.key==='Enter'){
+      handleClick();
+    }
+  }
   const chatContainerRef = useRef(null);
   const textareaRef = useRef(null);
 
@@ -28,11 +34,9 @@ const Chat = () => {
           if (req) {
             const memoriesList = req.data.memories.join(",");
             firstprompt = `Memories (wrapped in <>) and separated by commas: <${memoriesList}>`;
-            console.log(firstprompt);
-
+          
             await GeminiHistory(firstprompt);
 
-            
             if (firstquestion !== null) {
               const output = GeminiHistory(firstquestion);
               setHistory([]);
@@ -70,15 +74,18 @@ const Chat = () => {
 
   const handleInput = () => {
     if (textareaRef.current) {
-      textareaRef.current.style.height = "auto"; // Reset height
+      textareaRef.current.style.height = "auto"; 
       textareaRef.current.style.height = `${Math.min(
         textareaRef.current.scrollHeight,
         150
-      )}px`; // Limit max height to 150px
+      )}px`; 
     }
   };
 
   return (
+    <div>
+    <button className="glassmorphism fixed right-10 top-5 p-4" onClick={()=>{setischat(!isChat)}}>{isChat?"View all Memories":"Go to Chat"}</button>
+    {isChat ?
     <div className="flex justify-center items-center">
       <div className="w-[70%] mb-20 ">
         <div
@@ -100,7 +107,7 @@ const Chat = () => {
           ))}
         </div>
 
-        <div className="w-[70%] fixed bottom-3 glassmorphism p-4 my-2 flex">
+        <div className="w-[70%] fixed bottom-3 glassmorphism  my-2 flex items-center">
           <textarea
             ref={textareaRef}
             className="w-full bg-transparent outline-none resize-none overflow-y-auto hide-scrollbar"
@@ -111,11 +118,15 @@ const Chat = () => {
             }}
             rows={1}
             style={{ maxHeight: "150px" }} 
+            onKeyDown={handleKeydown}
           />
-          <button onClick={handleClick}>Submit</button>
+          <button onClick={handleClick} className="text-3xl glassmorphismdark h-12 w-16"><MdSend className="w-16"/></button>
         </div>
       </div>
     </div>
+  :<Memories userId={session.user.id}/>
+    }
+    </div>      
   );
 };
 

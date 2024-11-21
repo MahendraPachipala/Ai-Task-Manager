@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         <Provider>
         <DataProvider>
         <ClockCard/>
-        <Stopwatch />
+       
          {/* add remainder blur*/}
         {isopen && (
           <div

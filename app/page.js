@@ -5,6 +5,8 @@ import { signIn, useSession, getProviders } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import AnimatedGradientText from "@components/ui/animated-gradient-text";
 
+
+
 export default function Home() {
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
@@ -30,6 +32,7 @@ export default function Home() {
         <></>
       ) : (
         <div className="">
+
           <div className="fixed top-[370px] left-40 transform -translate-y-1/2 space-y-10">
             <AnimatedGradientText>
               <h1

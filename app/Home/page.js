@@ -4,14 +4,17 @@ import { MdSend } from "react-icons/md";
 import { useRouter } from 'next/navigation';
 import { useSession } from "next-auth/react";
 import { useDataContext } from "@utils/Datacontext";
-import axios from "axios";
 
 const Home = () => {
   const router = useRouter();
   const [question, setQuestion] = useState("");
   const {setfirstQuestion} = useDataContext();
   const{data:session,status} = useSession();
-  
+  const handleKeydown = (event) =>{
+    if(event.key==='Enter'){
+      handleClick();
+    }
+  }
   const handleClick = () => {
     setfirstQuestion(question);
     router.push("/Chat");
@@ -27,6 +30,7 @@ const Home = () => {
           placeholder="Ask Your Memories..."
           wrap="soft"
           onChange={(e) => setQuestion(e.target.value)}
+          onKeyDown={handleKeydown}
         />
         <button 
           onClick={handleClick} 

@@ -91,9 +91,9 @@ const DayTasksCard = ({ daytask }) => {
                     {task.start_time} - {task.end_time}
                   </p>
                  
-                  <button onClick={()=>handleDelete(task._id)}>
+                  <div onClick={()=>handleDelete(task._id)}>
                     <CustomButton />
-                  </button>
+                  </div>
                 </div>
               </div>
             );
