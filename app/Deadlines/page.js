@@ -27,7 +27,7 @@ const Deadlines = () => {
     const fetchEmails = async () => {
       if (status === "authenticated" && session) {
         try {
-          const res = await axios.post("http://localhost:3000/api/get/emails", {
+          const res = await axios.post("/api/get/emails", {
             session: session,
           });
           setDeadlines(res.data.data);
@@ -65,7 +65,7 @@ const Deadlines = () => {
     const fetchEmails = async () => {
       if (status === "authenticated" && session) {
         try {
-          const res = await axios.post("http://localhost:3000/api/add/emails", {
+          const res = await axios.post("/api/add/emails", {
             session: session,
           });
           if (res.status == 201) {

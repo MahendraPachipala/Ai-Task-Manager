@@ -1,9 +1,7 @@
 {
-  "/page": "app/page.js",
+  "/api/get/emails/route": "app/api/get/emails/route.js",
   "/Home/page": "app/Home/page.js",
-  "/Tasks/page": "app/Tasks/page.js",
   "/Deadlines/page": "app/Deadlines/page.js",
-  "/Chat/page": "app/Chat/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/get/memories/route": "app/api/get/memories/route.js"
+  "/page": "app/page.js",
+  "/api/add/emails/route": "app/api/add/emails/route.js"
 }
