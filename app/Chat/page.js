@@ -100,7 +100,21 @@ const Chat = () => {
               </div>
               <div className="flex justify-start">
                 <p className="glassmorphismdark p-4 w-full">
-                  <strong>ProductivePro:</strong> {entry.answer}
+                  <strong>ProductivePro:</strong>{entry.answer.split(" ").map((word, i) =>
+                                word.startsWith("http") || word.startsWith("www") ? (
+                                    <a
+                                        key={i}
+                                        href={word}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-blue-500 p-1 hover:text-blue-600 rounded inline-block"
+                                    >
+                                        {word}
+                                    </a>
+                                ) : (
+                                    <span key={i}>{word} </span>
+                                )
+                            )}
                 </p>
               </div>
             </div>
