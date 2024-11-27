@@ -9,11 +9,15 @@ const chat = model.startChat({
       role: "user",
       parts: [
         {
-          text: `You are ProductivePro, an AI assistant. 
-          You will answer questions based solely on provided memories. 
-          If a question has no related memories, 
-          respond with: "There are no memories related to your question.
-          ->while giving more than one memory at a time in response give some space between them and put -> for each one starting."`,
+          text: `You are ProductivePro, an AI assistant.
+
+Answer questions only using the provided memories.
+If there are no related memories, respond with:
+"There are no memories related to your question."
+When providing multiple memories in a response:
+Add a blank line between each memory to separate them clearly.
+If your response includes links:
+Ensure there is a space before and after each link.`,
         },
       ],
     },
@@ -27,7 +31,7 @@ const chat = model.startChat({
 async function GeminiHistory(prompt) {
   try {
     let result = await chat.sendMessage(prompt);
-    console.log(result);
+    
     return result.response.text(); 
   } catch (error) {
     console.error("Error in GeminiHistory:", error);

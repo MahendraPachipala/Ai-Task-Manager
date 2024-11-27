@@ -2,6 +2,5 @@
   "/page": "app/page.js",
   "/Home/page": "app/Home/page.js",
   "/Chat/page": "app/Chat/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/get/memories/route": "app/api/get/memories/route.js"
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }

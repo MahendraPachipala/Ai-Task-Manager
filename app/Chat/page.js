@@ -38,7 +38,7 @@ const Chat = () => {
             await GeminiHistory(firstprompt);
 
             if (firstquestion !== null) {
-              const output = GeminiHistory(firstquestion);
+              const output = await GeminiHistory(firstquestion);
               setHistory([]);
               setHistory((prevHistory) => [
                 ...prevHistory,
@@ -93,14 +93,14 @@ const Chat = () => {
           className="overflow-y-auto hide-scrollbar"
           style={{ maxHeight: "100vh" }}
         >
-          {history.map((entry, index) => (
+          {history.length>0&&history.map((entry, index) => (
             <div key={index} className="my-4 space-y-4">
               <div className="flex justify-end">
                 <p className="glassmorphism p-4 max-w-2xl">{entry.question}</p>
               </div>
               <div className="flex justify-start">
-                <p className="glassmorphismdark p-4 w-full">
-                  <strong>ProductivePro:</strong>{entry.answer.split(" ").map((word, i) =>
+                <p className="glassmorphismdark p-4 w-full">s
+                  <strong>ProductivePro:</strong>{entry.answer&&entry.answer.split(" ").map((word, i) =>
                                 word.startsWith("http") || word.startsWith("www") ? (
                                     <a
                                         key={i}
