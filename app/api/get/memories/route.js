@@ -4,13 +4,9 @@ import Memories from "@models/memories";
 export const GET = async (req) => {
     const userId = req.headers.get("userId");
 
-    console.log(userId);
-
     try {
         await connectToDB();
-        
         const data = await Memories.findOne({userId});
-        console.log(data);
         return new Response(JSON.stringify(data), { status: 200 });
     } catch (error) {
         console.error(error);
