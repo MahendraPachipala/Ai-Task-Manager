@@ -17,7 +17,8 @@ export const POST = async (req) => {
   hour: "numeric",
   minute: "numeric",
   second: "numeric",
-  hour12: true
+  hour12: true,
+  timeZone: "Asia/Kolkata"
 };
 
 const dateString = new Intl.DateTimeFormat("en-IN", options).format(currdate);
