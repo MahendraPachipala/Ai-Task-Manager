@@ -21,7 +21,6 @@ export const POST = async (req) => {
 };
 
 const dateString = new Intl.DateTimeFormat("en-IN", options).format(currdate);
-console.log(dateString);
 
   if (!description || description.trim() === "") {
     return new Response(JSON.stringify({ message: "Task cannot be empty" }), {
