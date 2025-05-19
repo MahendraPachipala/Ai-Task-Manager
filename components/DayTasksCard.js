@@ -29,7 +29,7 @@ const DayTasksCard = ({ daytask }) => {
         element_Id: e.target.name,
         ischecked: e.target.checked,
       });
-      console.log(response);
+      
     } catch (error) {
       console.log("Error updating task", error);
       setTasks(tasks);
@@ -47,7 +47,6 @@ const DayTasksCard = ({ daytask }) => {
           element_Id: id,
         },
       });
-      console.log("Response:", response.data);
     } catch (error) {
       console.error("Error deleting task:", error);
       setTasks(daytask.tasks);

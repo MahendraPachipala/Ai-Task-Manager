@@ -1,6 +1,8 @@
 {
   "/page": "app/page.js",
-  "/Chat/page": "app/Chat/page.js",
   "/Home/page": "app/Home/page.js",
-  "/api/get/memories/route": "app/api/get/memories/route.js"
+  "/Tasks/page": "app/Tasks/page.js",
+  "/api/add/task/route": "app/api/add/task/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/get/tasks/route": "app/api/get/tasks/route.js"
 }

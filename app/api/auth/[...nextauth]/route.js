@@ -21,7 +21,7 @@ const handler = NextAuth({
 
     async jwt({ token, account }) {
       if (account) {
-        console.log(account);
+        
         token.accessToken = account.access_token;
         token.refreshToken = account.refresh_token;
       }
@@ -29,7 +29,7 @@ const handler = NextAuth({
     },
   
     async session({ session, token }) {
-      console.log("refreshToken",token.refreshToken);
+      
 
       const sessionUser = await User.findOne({
         email: session.user.email,

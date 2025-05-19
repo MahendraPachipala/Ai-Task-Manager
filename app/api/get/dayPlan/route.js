@@ -45,7 +45,7 @@ prompt+=("<desc>"+request+"<desc>");
     const data = res.split("\n");
     
 
-    console.log(data);
+    
     //send plan to user
     return new Response(JSON.stringify({ plan: data }), {status: 200});
 

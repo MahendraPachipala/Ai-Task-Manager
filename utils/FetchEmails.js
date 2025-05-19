@@ -21,7 +21,7 @@ const FetchEmails = async (session) => {
     const listUnreadEmails = async () => {
       const userDeadlineData = await Deadlines.findOne({ userId });
       const lastEmailId = userDeadlineData ? userDeadlineData.lastid : null;
-      console.log(`Last Processed Email ID: ${lastEmailId}`);
+      
 
       const res = await gmail.users.messages.list({
         userId: 'me',
@@ -30,14 +30,14 @@ const FetchEmails = async (session) => {
 
       const messages = res.data.messages;
       if (!messages || messages.length === 0) {
-        console.log('No unread emails found.');
+        
         return;
       }
 
-      console.log('Processing unread emails...');
+      
       for (const message of messages) {
         if (message.id === lastEmailId) {
-          console.log('Reached last processed email. Stopping further processing.');
+          
           break;
         }
 
@@ -70,7 +70,7 @@ const FetchEmails = async (session) => {
 
         const response = await gemini(subject + body);
         if (response.trim() != "false") {
-          console.log(response);
+          
 
           const taskDetails = response.split(",");
           const [description, time, date] = taskDetails;

@@ -18,7 +18,7 @@ export const POST = async (req) => {
       const [task, start_time, end_time] = element
         .split(", ")
         .map((item) => item.trim());
-        console.log(task);
+        
         
       tasks.push({
         description: task,
@@ -47,7 +47,7 @@ export const POST = async (req) => {
         firstTask.save();
       }
     });
-    console.log("Hello");
+    
 
     return new Response(JSON.stringify({ message: "successfully added" }), { status: 201 });
   } catch (err) {

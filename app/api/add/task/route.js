@@ -11,13 +11,17 @@ export const POST = async (req) => {
   //date
   const currdate = new Date();
   const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  const dateString = new Intl.DateTimeFormat("en-IN", options).format(currdate);
-  
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric",
+  hour12: true
+};
+
+const dateString = new Intl.DateTimeFormat("en-IN", options).format(currdate);
+console.log(dateString);
 
   if (!description || description.trim() === "") {
     return new Response(JSON.stringify({ message: "Task cannot be empty" }), {

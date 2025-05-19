@@ -7,7 +7,7 @@ export const POST = async (req) => {
     await connectToDB();
 
     const { session } = await req.json();
-    console.log(session);
+    
     if (!session?.user?.id) {
       return new Response(JSON.stringify({ message: "Invalid session" }), { status: 400 });
     }
@@ -26,7 +26,7 @@ export const POST = async (req) => {
       },
       { $sort: { _id: -1 } } 
     ])
-    console.log(data);
+    
 
     return new Response(JSON.stringify({ message: "Data fetched", data }), { status: 200 });
   } catch (error) {
