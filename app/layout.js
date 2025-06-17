@@ -8,28 +8,29 @@ import Alert from "@components/Alert";
 import { DataProvider } from "@utils/Datacontext";
 import ClockCard from "@components/Clock";
 import Stopwatch from "@components/stopwatch";
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({ children }) {
   const [isopen, setIsOpen] = useState(false);
-  const [alert,setAlert] = useState({
-    message:"",
+  const [alert, setAlert] = useState({
+    message: "",
     status: 500
   });
 
-
-
+  const pathname = usePathname();
+  console.log(pathname)
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
   };
 
   return (
     <html lang="en">
-      <body>
+      <body className="min-h-screen flex flex-col">
+        <Alert alert={alert} setAlert={setAlert} Time={3000} />
         
-        <Alert alert={alert} setAlert={setAlert} Time={3000}/>
-        {/* backgroundImage */}
+        {/* Background Pattern */}
         <div
-          className="absolute inset-0 h-full w-full z-[-1]"
+          className="fixed inset-0 h-full w-full z-[-1]"
           style={{
             backgroundColor: "transparent",
             backgroundImage:
@@ -41,24 +42,37 @@ export default function RootLayout({ children }) {
         ></div>
 
         <Provider>
-        <DataProvider>
-        <ClockCard/>
-       
-         {/* add remainder blur*/}
-        {isopen && (
-          <div
-            onClick={handleOpen}
-            className="fixed w-full  backdrop-blur-lg  h-screen z-10"
-          ></div>
-        )}
-        {isopen && <AddTasks setIsOpen={setIsOpen} setAlert={setAlert}/>}
-          <Navbar handleOpen={handleOpen} />
-          
-          {children}
+          <DataProvider>
+            {/* Clock positioned differently based on screen size */}
+            <div className="fixed top-4 right-4 lg:right-8 xl:right-12 z-20">
+              <ClockCard />
+            </div>
+            
+            {/* Modal overlay */}
+            {isopen && (
+              <div
+                onClick={handleOpen}
+                className="fixed inset-0 w-full h-full backdrop-blur-lg z-30"
+              ></div>
+            )}
+            
+            {/* Add Tasks modal with responsive sizing */}
+            {isopen && (
+              <div className="fixed inset-0 flex items-center justify-center p-4 z-40">
+                <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
+                  <AddTasks setIsOpen={setIsOpen} setAlert={setAlert} />
+                </div>
+              </div>
+            )}
+            
+            {pathname !== "/privacy_policy" && pathname !== "/terms" && <Navbar handleOpen={handleOpen} />}
+
+            {/* Main content area with responsive padding */}
+            <main className="flex-1 pt-16 pb-8 px-4 sm:px-6 md:px-8 lg:px-12">
+              {children}
+            </main>
           </DataProvider>
         </Provider>
-
-        
       </body>
     </html>
   );

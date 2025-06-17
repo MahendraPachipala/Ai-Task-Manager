@@ -1,9 +1,7 @@
 {
   "/page": "app/page.js",
-  "/Deadlines/page": "app/Deadlines/page.js",
-  "/Tasks/page": "app/Tasks/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/add/task/route": "app/api/add/task/route.js",
-  "/api/put/task/route": "app/api/put/task/route.js",
-  "/api/get/tasks/route": "app/api/get/tasks/route.js"
+  "/Home/page": "app/Home/page.js",
+  "/privacy_policy/page": "app/privacy_policy/page.js",
+  "/terms/page": "app/terms/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }
