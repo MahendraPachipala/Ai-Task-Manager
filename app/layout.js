@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
             {pathname !== "/privacy_policy" && pathname !== "/terms" && <Navbar handleOpen={handleOpen} />}
 
             {/* Main content area with responsive padding */}
-            <main className="flex-1 pt-16 pb-8 px-4 sm:px-6 md:px-8 lg:px-12">
+            <main className="flex-1  px-4 sm:px-6 md:px-8 lg:px-12">
               {children}
             </main>
           </DataProvider>

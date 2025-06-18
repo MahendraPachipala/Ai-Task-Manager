@@ -24,37 +24,34 @@ const Navbar = ({ handleOpen }) => {
       {session && (
         <>
           {/* Desktop Version (unchanged) */}
-          <div className="glassmorphism fixed right-10 top-1/2 transform -translate-y-1/2 overflow-hidden rounded-xl px-3 py-3 flex flex-col space-y-10 w-12 transition-all duration-300 ease-in-out hover:w-36 z-20">
-          <div onClick={handleOpen} className="flex justify-end gap-4 cursor-pointer">
-            <span>Add</span>
-            <Image src="/asserts/icons/addIcon.svg" width={25} height={20} alt="Add Icon" />
-          </div>
+          {/* Desktop Version */}
+<div className="glassmorphism md:flex hidden fixed right-10 top-1/2 transform -translate-y-1/2 rounded-xl px-3 py-3 flex-col space-y-10 w-12 hover:w-36 transition-all duration-300 ease-in-out z-20 overflow-hidden group">
+  <div onClick={handleOpen} className="flex items-center justify-end gap-2 cursor-pointer">
+    <span className="hidden group-hover:inline">Add</span>
+    <Image src="/asserts/icons/addIcon.svg" width={25} height={20} alt="Add Icon" />
+  </div>
 
-          <Link href="/Home" className="flex justify-end gap-4">
-            <span>Home</span>
-            <Image src="/asserts/icons/homeIcon.svg" width={25} height={20} alt="Home Icon" />
-          </Link>
+  <Link href="/Home" className="flex items-center justify-end gap-2">
+    <span className="hidden group-hover:inline">Home</span>
+    <Image src="/asserts/icons/homeIcon.svg" width={25} height={20} alt="Home Icon" />
+  </Link>
 
-          <Link href="/Tasks" className="flex justify-end gap-4">
-            <span>Tasks</span>
-            <Image src="/asserts/icons/tasksIcon.svg" width={25} height={20} alt="Tasks Icon" />
-          </Link>
+  <Link href="/Tasks" className="flex items-center justify-end gap-2">
+    <span className="hidden group-hover:inline">Tasks</span>
+    <Image src="/asserts/icons/tasksIcon.svg" width={25} height={20} alt="Tasks Icon" />
+  </Link>
 
-          {/* <Link href="/Schedule" className="flex justify-end gap-4">
-            <span>Schedule</span>
-            <Image src="/asserts/icons/calenderIcon.svg" width={25} height={20} alt="Schedule Icon" />
-          </Link> */}
+  <Link href="/Deadlines" className="flex items-center justify-end gap-2">
+    <span className="hidden group-hover:inline">Deadlines</span>
+    <Image src="/asserts/icons/deadlineIcon.svg" width={25} height={20} alt="Deadlines Icon" />
+  </Link>
 
-          <Link href="/Deadlines" className="flex justify-end gap-4">
-            <span>Deadlines</span>
-            <Image src="/asserts/icons/deadlineIcon.svg" width={25} height={20} alt="Deadlines Icon" />
-          </Link>
+  <button onClick={signOut} className="flex items-center justify-end gap-2">
+    <span className="hidden group-hover:inline">Logout</span>
+    <Image src="/asserts/icons/logoutIcon.svg" width={25} height={20} alt="Logout Icon" />
+  </button>
+</div>
 
-          <button onClick={signOut} className="flex justify-end gap-4">
-            <span>Logout</span>
-            <Image src="/asserts/icons/logoutIcon.svg" width={25} height={20} alt="Logout Icon" />
-          </button>
-        </div>
 
           {/* Mobile Version */}
           <div className="md:hidden glassmorphism fixed bottom-0 left-0 right-0 overflow-hidden rounded-t-xl px-4 py-3 flex justify-around items-center z-20">

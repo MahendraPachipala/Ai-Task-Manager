@@ -20,8 +20,6 @@ const Home = () => {
     router.push("/Chat");
   };
 
-  
-
   return (
     <div className="flex justify-center min-h-screen items-center">
       <div className="relative h-48 w-[750px] bg-transparent text-white">
