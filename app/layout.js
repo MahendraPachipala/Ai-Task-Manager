@@ -52,18 +52,12 @@ export default function RootLayout({ children }) {
             {isopen && (
               <div
                 onClick={handleOpen}
-                className="fixed inset-0 w-full h-full backdrop-blur-lg z-30"
+                className="fixed  inset-0 w-full h-full backdrop-blur-lg z-20"
               ></div>
             )}
             
             {/* Add Tasks modal with responsive sizing */}
-            {isopen && (
-              <div className="fixed inset-0 flex items-center justify-center p-4 z-40">
-                <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
-                  <AddTasks setIsOpen={setIsOpen} setAlert={setAlert} />
-                </div>
-              </div>
-            )}
+            {isopen && <AddTasks setIsOpen={setIsOpen} setAlert={setAlert}/>}
             
             {pathname !== "/privacy_policy" && pathname !== "/terms" && <Navbar handleOpen={handleOpen} />}
 

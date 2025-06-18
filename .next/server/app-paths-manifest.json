@@ -1,7 +1,10 @@
 {
-  "/page": "app/page.js",
   "/Home/page": "app/Home/page.js",
-  "/privacy_policy/page": "app/privacy_policy/page.js",
-  "/terms/page": "app/terms/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+  "/page": "app/page.js",
+  "/Tasks/page": "app/Tasks/page.js",
+  "/Deadlines/page": "app/Deadlines/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/get/tasks/route": "app/api/get/tasks/route.js",
+  "/api/get/emails/route": "app/api/get/emails/route.js",
+  "/api/add/emails/route": "app/api/add/emails/route.js"
 }

@@ -16,15 +16,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/Home/page.js"
     ],
-    "/privacy_policy/page": [
+    "/Tasks/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/privacy_policy/page.js"
+      "static/chunks/app/Tasks/page.js"
     ],
-    "/terms/page": [
+    "/Deadlines/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/terms/page.js"
+      "static/chunks/app/Deadlines/page.js"
     ]
   }
 }
